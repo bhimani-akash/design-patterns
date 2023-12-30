@@ -1,0 +1,9 @@
+package edu.neu.csye7374.StockAPI;
+
+public class Walmart {
+
+	private double percent;
+
+	public Walmart() {
+	}
+}

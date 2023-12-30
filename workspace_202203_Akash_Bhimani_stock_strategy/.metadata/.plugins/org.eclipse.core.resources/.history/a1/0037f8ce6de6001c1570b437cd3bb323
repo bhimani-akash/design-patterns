@@ -1,0 +1,20 @@
+package edu.neu.csye7374.StockAPI;
+
+public class Stock implements Tradable {
+
+	private String StockName;
+	private double StockPrice = 0.00;
+	private String description;
+	
+	@Override
+	public void setBid(double bid) throws Exception {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public int getMetric() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,18 @@
+package edu.neu.csye7374;
+
+public class BDMecorator extends Auto {
+
+	public BDMecorator(AutoAPI newAuto) {
+		super(newAuto);
+		// TODO Auto-generated constructor stub
+	}	
+
+	public double getPrice() {
+		System.out.print("Price of Bumper to Bumper Warrantee: $2900");
+		return tempAuto.getPrice() + 2900;
+	}
+
+	public String getDescription() {
+		return tempAuto.getDescription() + ", Bumper to Bumper Warrantee";
+	}
+}

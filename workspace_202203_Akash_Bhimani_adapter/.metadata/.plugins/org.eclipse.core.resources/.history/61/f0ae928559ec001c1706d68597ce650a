@@ -1,0 +1,9 @@
+package edu.neu.csye7374;
+
+public interface EnemyAttacker {
+
+    public void usesWeapon();
+    public void movesForward();
+    public void assignDriver(String driverName);
+
+}

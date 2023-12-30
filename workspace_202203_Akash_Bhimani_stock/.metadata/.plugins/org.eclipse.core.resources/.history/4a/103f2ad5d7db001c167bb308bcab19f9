@@ -1,0 +1,279 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+interface Tradable {
+
+	/**
+     * place a bid to buy a stock
+     * 
+     * @param bid
+     */
+    void setBid(double bid);
+    /**
+     * return a metric indicating measure of positive performance of this stock
+     * @return
+     */
+    double getMetric();
+   
+}
+
+class Stock implements Tradable {
+	public final String description = "Common Stock";
+	private String name;
+	
+	public void setBid(double bid) {
+		
+	}
+	
+	public double getMetric() {
+		return 0;
+	}
+}
+
+class Amazon extends Stock {
+	
+	private static Amazon instance;
+	public final String description = "Amazon Common Stock";
+	public final int noOfStocks = 1000;
+	private double marketCap;
+	protected Double price = 0.0;
+	
+	private Amazon() {
+		instance = null;
+	}
+	
+	public static synchronized Amazon getInstance() {
+		 if (instance == null) {
+			 instance = new Amazon();
+		 }
+		 return instance;
+	}
+	
+	public void setBid(double bid) {
+		price = bid;
+		calculateMetric();
+	}
+	
+	private void calculateMetric() {
+		marketCap = noOfStocks * price;
+	}
+	
+	public double getMetric() {
+		return marketCap;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb= new StringBuilder();
+		sb.append(description).append(" | TotalNoOfStocks:").append(noOfStocks);
+		sb.append(" | Metric(Market Cap):").append(marketCap);
+		sb.append(" | CurrentPrice:").append(price);
+		return sb.toString();
+	}
+}
+
+class Google extends Stock {
+	
+	private static Google instance;
+	public final String description = "Google Common Stock";
+	public final int noOfStocks = 4000;
+	private double perHolderWorth;
+	private int count;
+	protected Double price = 0.0;
+	
+	private Google() {
+		instance = null;
+	}
+	
+	public static synchronized Google getInstance() {
+		 if (instance == null) {
+			 instance = new Google();
+		 }
+		 return instance;
+	}
+	
+	public void setBid(double bid) {
+		price = bid;
+		count += 1;
+		calculateMetric();
+	}
+	
+	private void calculateMetric() {
+		perHolderWorth = (noOfStocks * price)/count;
+	}
+	
+	public double getMetric() {
+		return perHolderWorth;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb= new StringBuilder();
+		sb.append(description).append(" | TotalNoOfStocks:").append(noOfStocks);
+		sb.append(" | Metric(Per Holder Worth):").append(perHolderWorth);
+		sb.append(" | CurrentPrice:").append(price);
+		return sb.toString();
+	}
+}
+
+class Walmart extends Stock {
+	
+	private static Walmart instance;
+	public final String description = "Walmart Common Stock";
+	public final int noOfStocks = 2000;
+	private double marketCap;
+	protected Double price = 0.0;
+	
+	private Walmart() {
+		instance = null;
+	}
+	
+	public static synchronized Walmart getInstance() {
+		 if (instance == null) {
+			 instance = new Walmart();
+		 }
+		 return instance;
+	}
+	
+	public void setBid(double bid) {
+		price = bid;
+		calculateMetric();
+	}
+	
+	private void calculateMetric() {
+		marketCap = noOfStocks * price;
+	}
+	
+	public double getMetric() {
+		return marketCap;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb= new StringBuilder();
+		sb.append(description).append(" | TotalNoOfStocks:").append(noOfStocks);
+		sb.append(" | Metric(Market Cap):").append(marketCap);
+		sb.append(" | CurrentPrice:").append(price);
+		return sb.toString();
+	}
+}
+
+class Costco extends Stock {
+	
+	private static Costco instance;
+	public final String description = "Costco Common Stock";
+	public final int noOfStocks = 4000;
+	private double perHolderWorth;
+	private int count;
+	protected Double price = 0.0;
+	
+	private Google() {
+		instance = null;
+	}
+	
+	public static synchronized Google getInstance() {
+		 if (instance == null) {
+			 instance = new Google();
+		 }
+		 return instance;
+	}
+	
+	public void setBid(double bid) {
+		price = bid;
+		count += 1;
+		calculateMetric();
+	}
+	
+	private void calculateMetric() {
+		perHolderWorth = (noOfStocks * price)/count;
+	}
+	
+	public double getMetric() {
+		return perHolderWorth;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb= new StringBuilder();
+		sb.append(description).append(" | TotalNoOfStocks:").append(noOfStocks);
+		sb.append(" | Metric(Per Holder Worth):").append(perHolderWorth);
+		sb.append(" | CurrentPrice:").append(price);
+		return sb.toString();
+	}
+}
+
+public class StockMarket {
+	
+	private static StockMarket instance;
+	private List<Stock> listOfStocks = new ArrayList<>();
+	
+	private StockMarket() {
+		instance = null;
+	}
+	public static synchronized StockMarket getInstance() {
+		 if(instance == null) {
+			 instance = new StockMarket();
+		 }
+		 return instance;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("All the Stocks currently listed in Stock Market are as follows: ").append("\n");
+		for(Stock s: this.listOfStocks) {
+			sb.append(s.toString()).append("\n");
+		}
+		return sb.toString();
+	}
+	
+	public void add(Stock s) {
+		this.listOfStocks.add(s);
+	}
+	
+	public void remove(Stock s) {
+		this.listOfStocks.remove(s);
+	}
+	
+	public static void main(String args[]) {
+		StockMarket stockMarket = StockMarket.getInstance();
+		Amazon amazonStock = Amazon.getInstance();
+		amazonStock.setBid(50);
+		stockMarket.add(amazonStock);
+		System.out.println(stockMarket);
+		
+		Google googleStock = Google.getInstance();
+		googleStock.setBid(90);
+		stockMarket.add(googleStock);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(48.2);
+		googleStock.setBid(85.9);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(49);
+		googleStock.setBid(88.2);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(52.1);
+		googleStock.setBid(89.9);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(51.6);
+		googleStock.setBid(92.8);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(52);
+		googleStock.setBid(91.8);
+		System.out.println(stockMarket);
+		
+		stockMarket.remove(amazonStock);
+		System.out.println(stockMarket);
+		
+		stockMarket.remove(googleStock);
+		System.out.println(stockMarket);
+	}
+}
+

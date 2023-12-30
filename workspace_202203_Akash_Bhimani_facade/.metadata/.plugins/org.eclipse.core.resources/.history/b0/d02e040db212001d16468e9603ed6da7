@@ -1,0 +1,6 @@
+package edu.neu.csye7374;
+
+public interface FileFacadeAPI {
+	public void save(List<String> programData);
+	public List<String> programDataload();
+}

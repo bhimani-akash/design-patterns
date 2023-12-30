@@ -1,0 +1,69 @@
+package edu.neu.csye7374;
+
+public class StocktAdapter implements StockMarket {
+
+	BearMarket theRobot;
+	
+	public EnemyRobotAdapter (EnemyRobot newRobot) {
+		theRobot = newRobot;
+	}
+
+	@Override
+	public void stockPrice() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stockMarketCap() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stockDescription(String stockName) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void usesWeapon() {
+		// TODO Auto-generated method stub
+		theRobot.smashWithHands();
+	}
+
+	@Override
+	public void movesForward() {
+		// TODO Auto-generated method stub
+		theRobot.walkForward();
+	}
+
+	@Override
+	public void assignDriver(String driverName) {
+		// TODO Auto-generated method stub
+		theRobot.reactToHuman(driverName);
+	}
+	
+	public static void demo() {
+		EnemyTank rx7Tank = new EnemyTank();
+		System.out.println("The Enemy Tank");
+		rx7Tank.assignDriver("Yash");
+		rx7Tank.movesForward();
+		rx7Tank.usesWeapon();
+		System.out.println();
+		
+		EnemyRobot fredTheRobot = new EnemyRobot();
+		System.out.println("The Robot");
+		fredTheRobot.reactToHuman("Akash");
+		fredTheRobot.walkForward();
+		fredTheRobot.smashWithHands();
+		System.out.println();
+		
+		EnemyAttacker robotAdapter = new EnemyRobotAdapter(fredTheRobot);
+		System.out.println("The Robot with Adapter");
+		robotAdapter.assignDriver("Divesh");
+		robotAdapter.movesForward();
+		robotAdapter.usesWeapon();
+	}
+	
+}

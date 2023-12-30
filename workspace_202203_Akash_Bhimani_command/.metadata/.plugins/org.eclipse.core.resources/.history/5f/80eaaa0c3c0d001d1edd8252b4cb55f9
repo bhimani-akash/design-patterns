@@ -1,0 +1,11 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Calculate {
+
+	int a;
+	int b;
+	List<Integer> list = new ArrayList<>();
+}

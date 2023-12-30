@@ -1,0 +1,34 @@
+package edu.neu.csye7374;
+
+public class AutoOrdering {
+	
+	public static void demo() {
+		System.out.println("USER CONFIGURATIONS 1\n---------------------------------------------------------------");
+		AutoAPI auto1 = new ACDecorator(new AWDDecorator(new ABSDecorator(new SportyCoupeAuto())));
+		System.out.print("Features and its respective price are as follows:");
+		double totalPrice = auto1.getPrice();
+		String features = auto1.getDescription();
+		auto1.getDescription();
+		System.out.println("\nFeatures are as follows:\n" + features);
+		System.out.println("\nThe final cost of the auto after modification is $"+ totalPrice);
+		
+		System.out.println("\n\n\n\nUSER CONFIGURATIONS 2\n---------------------------------------------------------------");
+		AutoAPI auto2 = new ABSDecorator(new BBDecorator(new BDMDecorator(new SportyCoupeAuto())));
+		System.out.print("Features and its respective price are as follows:");
+		totalPrice = auto2.getPrice();
+		features = auto2.getDescription();
+		auto2.getDescription();
+		System.out.println("\nFeatures are as follows:\n" + features);
+		System.out.println("\nThe final cost of the auto after modification is $"+ totalPrice);
+		
+		System.out.println("\n\n\n\nUSER CONFIGURATIONS 2\n---------------------------------------------------------------");
+		AutoAPI auto2 = new ABSDecorator(new BBDecorator(new BDMDecorator(new SportyCoupeAuto())));
+		System.out.print("Features and its respective price are as follows:");
+		totalPrice = auto2.getPrice();
+		features = auto2.getDescription();
+		auto2.getDescription();
+		System.out.println("\nFeatures are as follows:\n" + features);
+		System.out.println("\nThe final cost of the auto after modification is $"+ totalPrice);
+	}
+
+}

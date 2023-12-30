@@ -1,0 +1,34 @@
+package edu.neu.csye7374;
+
+public class Demo {
+
+	public static void demo() {
+
+        System.out.println("----- Showing Batch Calculator Result -----");
+        
+        System.out.println("--- Addition of 6 and 3");
+        BatchCalculator cmd1 = new BatchCalculator(new AddCommand
+                (new Calculate(6, 3)));
+        cmd1.invoke();
+
+        System.out.println("--- Subtraction of 3 from 6");
+        BatchCalculator cal2 = new BatchCalculator(new SubtractCommand
+                (new Calculate(6, 3)));
+        cal2.invoke();
+
+        System.out.println("--- Multiplication");
+        BatchCalculator cal3 = new BatchCalculator(new MultiplyCommand
+                (new Calculate(6, 3)));
+        cal3.invoke();
+
+        System.out.println("--- Division");
+        BatchCalculator cal4 = new BatchCalculator(new DivideCommand
+                (new Calculate(6, 3)));
+        cal4.invoke();
+
+        System.out.println("---* Sum");
+        BatchCalculator cal5 = new BatchCalculator(new SumCommand(new Calculate(1,2,3,4)));
+        cal5.invoke();
+
+	}
+}

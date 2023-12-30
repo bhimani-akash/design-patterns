@@ -1,0 +1,79 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StockMarket {
+	
+	private static StockMarket instance;
+	private List<Stock> listOfStocks = new ArrayList<>();
+	
+	private StockMarket() {
+		instance = null;
+	}
+	public static synchronized StockMarket getInstance() {
+		 if(instance == null) {
+			 instance = new StockMarket();
+		 }
+		 return instance;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("All the Stocks currently listed in Stock Market are as follows: ").append("\n");
+		for(Stock s: this.listOfStocks) {
+			sb.append(s.toString()).append("\n");
+		}
+		return sb.toString();
+	}
+	
+	public void add(Stock s) {
+		this.listOfStocks.add(s);
+	}
+	
+	public void remove(Stock s) {
+		this.listOfStocks.remove(s);
+	}
+	
+	public static void main(String args[]) {
+		StockMarket stockMarket = StockMarket.getInstance();
+		
+		Amazon amazonStock = Amazon.getInstance();
+		amazonStock.setBid(50);
+		stockMarket.add(amazonStock);
+		System.out.println(stockMarket);
+		
+//		Google googleStock = Google.getInstance();
+//		googleStock.setBid(90);
+//		stockMarket.add(googleStock);
+//		System.out.println(stockMarket);
+		
+		amazonStock.setBid(48.2);
+//		googleStock.setBid(85.9);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(49);
+//		googleStock.setBid(88.2);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(52.1);
+//		googleStock.setBid(89.9);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(51.6);
+//		googleStock.setBid(92.8);
+		System.out.println(stockMarket);
+		
+		amazonStock.setBid(52);
+//		googleStock.setBid(91.8);
+		System.out.println(stockMarket);
+		
+		stockMarket.remove(amazonStock);
+		System.out.println(stockMarket);
+//		
+//		stockMarket.remove(googleStock);
+//		System.out.println(stockMarket);
+	}
+	
+}

@@ -1,0 +1,45 @@
+package edu.neu.csye7374;
+
+public class Google {
+	
+	private static Google instance;
+	public final String description = "Google Common Stock";
+	public final int noOfStocks = 4000;
+	private double perHolderWorth;
+	private int count;
+	protected Double price=0.0;
+	
+	private Google() {
+		instance = null;
+	}
+	
+	public static synchronized Google getInstance() {
+		 if(instance == null) {
+			 instance = new Google();
+		 }
+		 return instance;
+	}
+	
+	public void setBid(double bid) {
+		price = bid;
+		count += 1;
+		calculateMetric();
+	}
+	
+	private void calculateMetric() {
+		perHolderWorth = (noOfStocks * price)/count;
+	}
+	
+	public double getMetric() {
+		return perHolderWorth;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb= new StringBuilder();
+		sb.append(description).append(" | TotalNoOfStocks:").append(noOfStocks);
+		sb.append(" | Metric(Per Holder Worth):").append(perHolderWorth);
+		sb.append(" | CurrentPrice:").append(price);
+		return sb.toString();
+	}
+}

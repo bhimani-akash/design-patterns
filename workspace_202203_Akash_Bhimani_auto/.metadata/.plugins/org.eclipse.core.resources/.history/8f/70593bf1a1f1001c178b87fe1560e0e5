@@ -1,0 +1,20 @@
+package edu.neu.csye7374;
+
+public class AutoOrdering {
+	
+	public static void demo() {
+//		Pizza basicPizza = new TomatoSauce(new Mozzarella(new PlainPizza()));
+//        System.out.println("Ingredients: " + basicPizza.getDescription());
+//        System.out.println("Price: " + basicPizza.getCost());
+		System.out.println("USER CONFIGURATIONS 1\n---------------------------------------------");
+		AutoAPI auto1 = new ABSDecorator(new BDMDecorator(new BBDecorator(new SportyCoupeAuto())));
+		System.out.print("Features and its respective price are as follows:");
+		double price = auto1.getPrice();
+		
+		String features = auto1.getDescription();
+		auto1.getDescription();
+		System.out.println("\nFeatures are as follows:\n" + features);
+		System.out.println("\n ****The final cost of the auto after modification is $"+b+ "****");
+	}
+
+}

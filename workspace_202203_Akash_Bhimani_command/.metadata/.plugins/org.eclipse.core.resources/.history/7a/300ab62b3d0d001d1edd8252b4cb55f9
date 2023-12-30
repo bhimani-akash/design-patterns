@@ -1,0 +1,11 @@
+package edu.neu.csye7374;
+
+public class SubtractCommand implements Command {
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

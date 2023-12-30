@@ -1,0 +1,60 @@
+package edu.neu.csye7374;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		StockAPI stockW = new Walmart("WMT", 123, "Walmart's Stock");
+		stockW.setBid(125);
+		System.out.println(stockW);
+		stockW.setBid(124);
+		System.out.println(stockW);
+		stockW.setBid(122);
+		System.out.println(stockW);
+		stockW.setBid(123);
+		System.out.println(stockW);
+		stockW.setBid(125);
+		System.out.println(stockW);
+		stockW.setBid(128);
+		System.out.println(stockW);
+		stockW.getMetric();
+		
+		StockAPI stockC = new Costco("COST", 432, "Costco's Stock");
+		stockC.setBid(432);
+		System.out.println(stockC);
+		stockC.setBid(430);
+		System.out.println(stockC);
+		stockC.setBid(440);
+		System.out.println(stockC);
+		stockC.setBid(437);
+		System.out.println(stockC);
+		stockC.setBid(431);
+		System.out.println(stockC);
+		stockC.setBid(433);
+		System.out.println(stockC);
+		stockC.getMetric();
+	}
+}
+
+/*
+Output - 
+
+Initial price of Walmart is 123.0
+StockAPI [ID=WMT, price=125.0, description=Walmart's Stock]
+StockAPI [ID=WMT, price=124.0, description=Walmart's Stock]
+StockAPI [ID=WMT, price=122.0, description=Walmart's Stock]
+StockAPI [ID=WMT, price=123.0, description=Walmart's Stock]
+StockAPI [ID=WMT, price=125.0, description=Walmart's Stock]
+StockAPI [ID=WMT, price=128.0, description=Walmart's Stock]
+Price fluctuation for Walmart = [2.0, -1.0, -2.0, 1.0, 2.0, 3.0]
+
+Initial price of Costco is 432.0
+StockAPI [ID=COST, price=432.0, description=Costco's Stock]
+StockAPI [ID=COST, price=430.0, description=Costco's Stock]
+StockAPI [ID=COST, price=440.0, description=Costco's Stock]
+StockAPI [ID=COST, price=437.0, description=Costco's Stock]
+StockAPI [ID=COST, price=431.0, description=Costco's Stock]
+StockAPI [ID=COST, price=433.0, description=Costco's Stock]
+Price fluctuation for Costco = [0.0, -2.0, 10.0, -3.0, -6.0, 2.0]
+*/

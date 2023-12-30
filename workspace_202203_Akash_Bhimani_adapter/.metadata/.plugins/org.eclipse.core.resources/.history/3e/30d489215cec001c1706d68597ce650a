@@ -1,0 +1,51 @@
+package edu.neu.csye7374;
+
+public class StocktAdapter implements StockMarket {
+
+	BearMarket market;
+	
+	public StocktAdapter(BearMarket newMarket) {
+		market = newMarket;
+	}
+
+	@Override
+	public void stockPrice() {
+		// TODO Auto-generated method stub
+		market.bearStockPrice();
+	}
+
+	@Override
+	public void stockMarketCap() {
+		// TODO Auto-generated method stub
+		market.bearStockMarketCap();
+	}
+
+	@Override
+	public void stockDescription(String stockName) {
+		// TODO Auto-generated method stub
+		market.bearStockDescription(stockName);
+	}
+	
+	public static void demo() {
+		BullMarket bullMarket = new BullMarket();
+		System.out.println("The Enemy Tank");
+		rx7Tank.assignDriver("Yash");
+		rx7Tank.movesForward();
+		rx7Tank.usesWeapon();
+		System.out.println();
+		
+		EnemyRobot fredTheRobot = new EnemyRobot();
+		System.out.println("The Robot");
+		fredTheRobot.reactToHuman("Akash");
+		fredTheRobot.walkForward();
+		fredTheRobot.smashWithHands();
+		System.out.println();
+		
+		EnemyAttacker robotAdapter = new EnemyRobotAdapter(fredTheRobot);
+		System.out.println("The Robot with Adapter");
+		robotAdapter.assignDriver("Divesh");
+		robotAdapter.movesForward();
+		robotAdapter.usesWeapon();
+	}
+	
+}

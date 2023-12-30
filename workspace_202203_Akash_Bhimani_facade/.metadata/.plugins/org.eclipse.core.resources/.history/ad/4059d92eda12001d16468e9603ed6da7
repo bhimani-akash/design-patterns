@@ -1,0 +1,35 @@
+package edu.neu.csye7374;
+
+public class ReadWriteXML implements InterfaceReadWrite {
+
+	@Override
+	public void createFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void openFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void writeFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void closeFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void readFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

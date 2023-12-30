@@ -1,0 +1,9 @@
+package edu.neu.csye7374;
+
+public interface StockMarket {
+
+    public void stockPrice();
+    public void movesForward();
+    public void assignDriver(String driverName);
+
+}

@@ -1,0 +1,56 @@
+package edu.neu.csye7374;
+
+public class StockAPI implements Tradable {
+	private String ID;
+	private double price;
+	private String description;
+	
+	StockAPI(String ID, double price, String description) {
+		setID(ID);
+		setDescription(description);
+		setPrice(price);
+	}
+	
+	public String getID() {
+		return ID;
+	}
+
+	public void setID(String iD) {
+		ID = iD;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public void setBid(double bid) {
+		// TODO Auto-generated method stub
+		setPrice(bid);
+	}
+
+	@Override
+	public int getMetric() {
+		// TODO Auto-generated method stub
+		System.out.println("Stock get metric method");
+		return 1;
+	}
+
+	@Override
+	public String toString() {
+		return "StockAPI [ID=" + ID + ", price=" + price + ", description=" + description + "]";
+	}
+	
+}

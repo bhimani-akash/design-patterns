@@ -1,0 +1,24 @@
+package edu.neu.csye7374.StockAPI;
+
+public class Costco extends Stock {
+	private double percent;
+
+	public Nvidia() {
+	}
+
+	public Nvidia(double price) {
+		System.out.println("Called() Nvidia Constructor......");
+		this.setStockName("Nvidia");
+		this.setStockPrice(price);
+		this.setDescription("Graphics card manufacturer");
+	}
+
+	private double getPercent() {
+		return this.percent;
+	}
+
+	private void setPercent(double percentMove) {
+		this.percent = percentMove;
+	}
+
+}

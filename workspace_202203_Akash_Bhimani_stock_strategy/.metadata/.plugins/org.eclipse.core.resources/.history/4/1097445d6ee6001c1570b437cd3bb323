@@ -1,0 +1,30 @@
+package edu.neu.csye7374.StockAPI;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StockMarket {
+	private List<Stock> stocks = new ArrayList<>();
+
+	private static StockMarket instance;
+
+	private StockMarket() {
+
+	}
+
+	public static StockMarket getInstance() {
+		if (instance == null) {
+			instance = new StockMarket();
+		}
+		return instance;
+	}
+	
+	// Function to add stock
+		public void addStock(Stock stk) throws Exception {
+			if (!stocks.contains(stk)) {
+				stocks.add(stk);
+			} else {
+				throw new Exception("Stock already exists");
+			}
+		}
+}

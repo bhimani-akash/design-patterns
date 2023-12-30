@@ -1,0 +1,13 @@
+package edu.neu.csye7374.Strategy;
+
+public class Context {
+	private Strategy strategy;
+	
+	public Context(Strategy strategy) {
+		this.strategy = strategy;
+	}
+	
+	public double executeStrategy(double price1, double price2) {
+		return strategy.calculatePrice(price1, price2);
+	}
+}

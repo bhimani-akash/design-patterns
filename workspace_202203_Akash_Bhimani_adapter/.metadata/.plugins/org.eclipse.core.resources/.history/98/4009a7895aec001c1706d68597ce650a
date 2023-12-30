@@ -1,0 +1,28 @@
+package edu.neu.csye7374;
+
+import java.util.Random;
+
+public class BullMarket implements StockMarket {
+
+	Random rand = new Random();
+
+	@Override
+	public void stockPrice() {
+		// TODO Auto-generated method stub
+		int price = rand.nextInt(10) + 1;
+		System.out.println("Stock price is " + price);
+	}
+
+	@Override
+	public void stockMarketCap() {
+		// TODO Auto-generated method stub
+		int price = rand.nextInt(5) + 1;
+		System.out.println("Market Cap is " + price * 100000000);
+	}
+
+	@Override
+	public void stockDescription(String stockName) {
+		// TODO Auto-generated method stub
+		System.out.println(stockName + " added to stock market");
+	}
+}

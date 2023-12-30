@@ -1,0 +1,42 @@
+package edu.neu.csye7374;
+
+public class Amazon extends Stock {
+	private static Amazon instance;
+	public final String description = "Amazon Common Stock";
+	public final int noOfStocks = 1000;
+	private double marketCap;
+	protected Double price = 0.0;
+	
+	private Amazon() {
+		instance = null;
+	}
+	
+	public static synchronized Amazon getInstance() {
+		 if(instance == null) {
+			 instance = new Amazon();
+		 }
+		 return instance;
+	}
+	
+	public void setBid(double bid) {
+		price = bid;
+		calculateMetric();
+	}
+	
+	private void calculateMetric() {
+		marketCap = noOfStocks * price;
+	}
+	
+	public double getMetric() {
+		return marketCap;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb= new StringBuilder();
+		sb.append(description).append(" | TotalNoOfStocks:").append(noOfStocks);
+		sb.append(" | Metric(Market Cap):").append(marketCap);
+		sb.append(" | CurrentPrice:").append(price);
+		return sb.toString();
+	}
+}

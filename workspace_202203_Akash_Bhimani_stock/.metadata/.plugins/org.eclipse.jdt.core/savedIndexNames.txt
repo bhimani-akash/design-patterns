@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+E:\NEU\Coursework\DP\workspace_202203_Akash_Bhimani_stock\.metadata\.plugins\org.eclipse.jdt.core
+2254169942.index
+1865797976.index
+3883950653.index

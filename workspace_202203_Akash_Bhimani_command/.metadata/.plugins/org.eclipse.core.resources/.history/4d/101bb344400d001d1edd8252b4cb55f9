@@ -1,0 +1,28 @@
+package edu.neu.csye7374;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		Demo.demo();
+	}
+}
+
+/*
+----- Showing Batch Calculator Result -----
+
+Addition of 6 and 3
+6 + 3 = 9
+
+Subtraction of 3 from 6
+6 - 3 = 3
+
+Multiplication of 6 and 3
+6 * 3 = 18
+
+Division of 6 by 3
+6 / 3 = 2
+
+Sum of 1, 2, 3 and 4
+1 + 2 + 3 + 4 = 10
+
+*/

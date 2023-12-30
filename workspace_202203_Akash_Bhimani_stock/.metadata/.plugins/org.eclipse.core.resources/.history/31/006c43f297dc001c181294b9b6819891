@@ -1,0 +1,27 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PointTest {
+    static final class Point {
+        private double x, y;
+        
+        Point(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    public static void main(final String[] args) {
+        List<Point> pointList = new ArrayList<>();
+        pointList.add(new Point(1, 2));
+        pointList.add(new Point(3, 4));
+        System.out.println(pointList.size());
+        // remove the second Point
+        pointList.remove(new Point(3, 4));
+        System.out.println(pointList.size());
+        // Not removed!
+    }
+	
+}

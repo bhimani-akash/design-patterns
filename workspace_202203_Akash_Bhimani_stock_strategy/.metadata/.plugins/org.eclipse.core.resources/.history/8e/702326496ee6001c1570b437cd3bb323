@@ -1,0 +1,21 @@
+package edu.neu.csye7374.StockAPI;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StockMarket {
+	private List<Stock> stocks = new ArrayList<>();
+
+	private static StockMarket instance;
+
+	private StockMarket() {
+
+	}
+
+	public static StockMarket getObject() {
+		if (object == null) {
+			object = new StockMarket();
+		}
+		return object;
+	}
+}

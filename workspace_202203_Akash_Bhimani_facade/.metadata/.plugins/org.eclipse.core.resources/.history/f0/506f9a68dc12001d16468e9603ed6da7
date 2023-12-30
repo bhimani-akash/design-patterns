@@ -1,0 +1,36 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Driver {
+	public static void main(String[] args) {
+		InterfaceReadWrite readwriteText = new ReadWriteFile();
+		FileFacadeAPI textFacade = new FileFacade(readwriteText);
+		
+		InterfaceReadWrite readwriteJSON = new ReadWriteJSON();
+		FileFacadeAPI textJSON = new FileFacade(readwriteJSON);
+		
+		InterfaceReadWrite readwriteXML = new ReadWriteXML();
+		FileFacadeAPI textXML = new FileFacade(readwriteXML);
+		
+		InterfaceReadWrite readwriteBinary = new ReadWriteBinary();
+		FileFacadeAPI textBinary = new FileFacade(readwriteBinary);
+		
+		List<String> programData = new ArrayList<>();
+		textFacade.save(programData);
+		textFacade.programDataload();
+		System.out.println("---------------------------------------\n");
+		
+		textJSON.save(programData);
+		textJSON.programDataload();
+		System.out.println("---------------------------------------\n");
+		
+		textXML.save(programData);
+		textXML.programDataload();
+		System.out.println("---------------------------------------\n");
+		
+		textBinary.save(programData);
+		textBinary.programDataload();
+	}
+}

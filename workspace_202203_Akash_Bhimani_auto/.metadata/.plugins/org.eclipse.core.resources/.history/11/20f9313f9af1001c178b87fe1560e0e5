@@ -1,0 +1,18 @@
+package edu.neu.csye7374;
+
+public class ABSDecorators extends Auto {
+
+	public ABSDecorators(AutoAPI newAuto) {
+		super(newAuto);	
+		// TODO Auto-generated constructor stub
+	}
+
+	public double getPrice() {
+		System.out.print("Price of Anti-lock Braking System: $2500");
+		return tempAuto.getPrice() + 2500;
+	}
+
+	public String getDescription() {
+		return tempAuto.getDescription() + ", All Wheel Drive";
+	}
+}

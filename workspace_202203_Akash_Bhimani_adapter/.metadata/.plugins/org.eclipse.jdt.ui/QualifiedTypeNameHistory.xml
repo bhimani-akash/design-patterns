@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="edu.neu.csye7374.EnemyTank"/>
+    <fullyQualifiedTypeName name="edu.neu.csye7374.EnemyRobot"/>
+    <fullyQualifiedTypeName name="edu.neu.csye7374.EnemyAttacker"/>
+    <fullyQualifiedTypeName name="edu.neu.csye7374.EnemyRobotAdapter"/>
+    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="edu.neu.csye7374.StockMarket"/>
+    <fullyQualifiedTypeName name="edu.neu.csye7374.StockAdapter"/>
+</qualifiedTypeNameHistroy>

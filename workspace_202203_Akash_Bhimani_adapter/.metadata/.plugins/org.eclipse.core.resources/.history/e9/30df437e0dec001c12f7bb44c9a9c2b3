@@ -1,0 +1,25 @@
+package edu.neu.csye7374;
+
+public class Driver {
+	public static void main(String[] args) {
+		EnemyRobotAdapter.demo();
+	}
+}
+
+/*
+The Enemy Tank
+Yash is driving the tank
+Enemy tank moves 2 spaces
+Enemy tank does 6 damage
+
+The Robot
+Enemy robot tramps on Akash
+Enemy robot walks forward 4 spaces
+Enemy robot causes 7 damage with its hands
+
+The Robot with Adapter
+Enemy robot tramps on Divesh
+Enemy robot walks forward 3 spaces
+Enemy robot causes 6 damage with its hands
+
+*/

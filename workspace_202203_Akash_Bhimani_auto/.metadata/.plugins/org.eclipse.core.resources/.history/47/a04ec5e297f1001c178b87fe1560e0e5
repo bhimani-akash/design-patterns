@@ -1,0 +1,21 @@
+package edu.neu.csye7374;
+
+public class Auto implements AutoAPI {
+
+	protected AutoAPI auto;
+	
+	public Auto
+	
+	@Override
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

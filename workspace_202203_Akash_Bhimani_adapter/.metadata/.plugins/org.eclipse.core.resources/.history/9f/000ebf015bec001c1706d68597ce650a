@@ -1,0 +1,23 @@
+package edu.neu.csye7374;
+
+import java.util.Random;
+
+public class BearMarket {
+	
+	Random rand = new Random();
+	
+	public void bearStockPrice() {
+		int price = rand.nextInt(10) + 1;
+		System.out.println("Bear stock price is " + price);
+	}
+	
+	public void bearStockMarketCap() {
+		int price = rand.nextInt(5) + 1;
+		System.out.println("Bear stock market cap is " + price * 1000000);
+	}
+
+	public void bearStockDescription(String stockName) {
+		// TODO Auto-generated method stub
+		System.out.println(stockName + " added to bear stock market");
+	}
+}

@@ -1,0 +1,27 @@
+package edu.neu.csye7374;
+
+import java.util.Random;
+
+public class EnemyTank implements EnemyAttacker {
+
+	Random generator = new Random();
+	
+	@Override
+	public void fireWeapon() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void driveForward() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void assignDriver(String driverName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

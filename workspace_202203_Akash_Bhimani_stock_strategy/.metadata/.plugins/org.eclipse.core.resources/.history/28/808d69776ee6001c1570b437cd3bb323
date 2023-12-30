@@ -1,0 +1,45 @@
+package edu.neu.csye7374.StockAPI;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StockMarket {
+	private List<Stock> stocks = new ArrayList<>();
+
+	private static StockMarket instance;
+
+	private StockMarket() {
+
+	}
+
+	public static StockMarket getInstance() {
+		if (instance == null) {
+			instance = new StockMarket();
+		}
+		return instance;
+	}
+	
+	public void addStock(Stock stk) throws Exception {
+		if (!stocks.contains(stk)) {
+			stocks.add(stk);
+		} else {
+			throw new Exception("Stock already exists");
+		}
+	}
+	
+	public void updatePrice(double newPrice, Stock stk) throws Exception {
+		if (stocks.contains(stk)) {
+			stk.setStockPrice(newPrice);
+		} else {
+			throw new Exception("No such stock exists!!");
+		}
+	}
+	
+	public void removeStock(Stock stk) throws Exception {
+		if (stocks.contains(stk)) {
+			stocks.remove(stk);
+		} else {
+			throw new Exception("No such stock exists!!");
+		}
+	}
+}

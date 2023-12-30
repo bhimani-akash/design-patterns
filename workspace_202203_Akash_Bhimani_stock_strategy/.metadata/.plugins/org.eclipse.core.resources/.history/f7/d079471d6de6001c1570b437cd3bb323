@@ -1,0 +1,11 @@
+package edu.neu.csye7374.Strategy;
+
+public class EagerSingletonBullStrategy implements Strategy {
+
+	@Override
+	public double calculatePrice(double oldPrice, double bidPrice) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,13 @@
+package edu.neu.csye7374;
+
+public class AutoOrdering {
+	
+	public static void demo() {
+//		Pizza basicPizza = new TomatoSauce(new Mozzarella(new PlainPizza()));
+//        System.out.println("Ingredients: " + basicPizza.getDescription());
+//        System.out.println("Price: " + basicPizza.getCost());
+		
+		AutoAPI auto1 = new ABSDecorator(new BDMecorator(new BumperToBumper(new SportyCoupe())));
+	}
+
+}

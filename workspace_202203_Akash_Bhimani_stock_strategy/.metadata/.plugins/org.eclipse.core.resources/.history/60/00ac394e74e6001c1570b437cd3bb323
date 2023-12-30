@@ -1,0 +1,87 @@
+package edu.neu.csye7374.Strategy;
+
+import edu.neu.csye7374.StockAPI.Amazon;
+import edu.neu.csye7374.StockAPI.Costco;
+import edu.neu.csye7374.StockAPI.Nvidia;
+import edu.neu.csye7374.StockAPI.Stock;
+import edu.neu.csye7374.StockAPI.StockMarket;
+
+public class Context {
+	private Strategy strategy;
+	
+	public Context(Strategy strategy) {
+		this.strategy = strategy;
+	}
+	
+	public double executeStrategy(double price1, double price2) {
+		return strategy.calculatePrice(price1, price2);
+	}
+	
+	public static void demo() {
+		try {
+			System.out.println("Strategy Demo Function().....");
+			Stock amzn = new Amazon();
+			Stock costco = new Costco();
+
+			System.out.println("------------OPERATION:Adding the stocks in the stockmarket-----------\n");
+			// Adding the stocks in the StockMarket
+			StockMarket.getInstance().addStock(amzn);
+			StockMarket.getInstance().addStock(nvidia);
+
+			System.out.println("All the stocks in the stock market\n");
+			// Displaying all the stocks
+			StockMarket.getInstance().displayAllStocks();
+
+			System.out.println("------------OPERATION:Placing bids for the amazon---------------\n");
+			// Making the bids for Amazon Stock
+			amzn.setBid(1010.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1011.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1010.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1013.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1014.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1015.00);
+			System.out.println(amzn.toString() + "\n");
+
+			System.out.println("------------OPERATION: Placing bids for nvidia-----------------------\n");
+			// Making bids for the Nvidia stock
+			nvidia.setBid(699.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(698.78);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(678.45);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(700.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(705.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(699.98);
+			System.out.println(nvidia.toString() + "\n");
+
+			// Getting the performance matrix of each stock
+			if (amzn.getMetric() == 100) {
+				System.out.println("---------TIP: Possible BUY\n");
+			} else {
+				System.out.println("---------TIP: SELL\n");
+			}
+
+			if (nvidia.getMetric() == 100) {
+				System.out.println("---------TIP: Possible BUY\n");
+			} else {
+				System.out.println("---------TIP: SELL\n");
+			}
+
+			// Printing the price of stocks in StockMarket
+			System.out.println(
+					"--------------------Stock Market prices to show that the prices are being updated everywhere---------");
+			StockMarket.getInstance().displayAllStocks();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,154 @@
+package edu.neu.csye7374.StockAPI;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StockMarket {
+	private List<Stock> stocks = new ArrayList<>();
+
+	private static StockMarket instance;
+
+	private StockMarket() {
+
+	}
+
+	public static StockMarket getInstance() {
+		if (instance == null) {
+			instance = new StockMarket();
+		}
+		return instance;
+	}
+	
+	public void addStock(Stock stk) throws Exception {
+		if (!stocks.contains(stk)) {
+			stocks.add(stk);
+		} else {
+			throw new Exception("Stock already exists");
+		}
+	}
+	
+	public void updatePrice(double newPrice, Stock stk) throws Exception {
+		if (stocks.contains(stk)) {
+			stk.setStockPrice(newPrice);
+		} else {
+			throw new Exception("No such stock exists!!");
+		}
+	}
+	
+	public void removeStock(Stock stk) throws Exception {
+		if (stocks.contains(stk)) {
+			stocks.remove(stk);
+		} else {
+			throw new Exception("No such stock exists!!");
+		}
+	}
+	
+	public Stock getStock(String name) throws Exception {
+		Stock stock = null;
+		for (Stock s : stocks) {
+			if (s.getStockName().equalsIgnoreCase(name)) {
+				stock = s;
+			}
+		}
+		if (stock == null) {
+			throw new Exception("No such stock exists!!");
+		}
+		return stock;
+	}
+	
+	public void displayAllStocks() throws Exception {
+		if (stocks.size() != 0) {
+			for (Stock s : stocks) {
+				if (s instanceof Amazon) {
+					s = (Amazon) s;
+					System.out.println(s.toString());
+				} else if (s instanceof Nvidia) {
+					s = (Nvidia) s;
+					System.out.println(s.toString());
+				}
+			}
+		} else {
+			throw new Exception("No stocks to be displayed");
+		}
+	}
+	
+	public static void demo() throws Exception {
+		System.out.println("Creating a Amazon and Nvidia Objects using simple factory class");
+		FactoryClass simpleFactory = new FactoryClass(); // Simple factory class object
+		Stock amzn = simpleFactory.getObject("Amazon"); // Object created using simple factory class
+		FactoryProducer fProducer = new FactoryProducer();
+		AbstractFactory absFactory = fProducer.getFactoryObject("Nvidia");
+		Stock nvidia = absFactory.getObject("Nvidia");
+		Stock google = EagerSingletonFactoryGoogle.getInstance().getObject("Google");
+		Stock youtube = LazySingletonFactoryAmazon.getInstance().getObject("Youtube");
+		System.out.println(amzn.toString() + "\n");
+		System.out.println(nvidia.toString() + "\n");
+		System.out.println(google.toString() + "\n");
+		System.out.println(youtube.toString() + "\n");
+
+		try {
+
+			System.out.println("------------OPERATION:Adding the stocks in the stockmarket-----------\n");
+			// Adding the stocks in the StockMarket
+			StockMarket.getObject().addStock(amzn);
+			StockMarket.getObject().addStock(nvidia);
+			StockMarket.getObject().addStock(google);
+			StockMarket.getObject().addStock(youtube);
+
+			System.out.println("All the stocks in the stock market\n");
+			// Displaying all the stocks
+			StockMarket.getObject().displayAllStocks();
+
+			System.out.println("------------OPERATION:Placing bids for the amazon---------------\n");
+			// Making the bids for Amazon Stock
+			amzn.setBid(1010.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1011.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1010.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1013.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1014.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1015.00);
+			System.out.println(amzn.toString() + "\n");
+
+			System.out.println("------------OPERATION: Placing bids for nvidia-----------------------\n");
+			// Making bids for the Nvidia stock
+			nvidia.setBid(701.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(702.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(700.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(704.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(705.00);
+			System.out.println(nvidia.toString() + "\n");
+			nvidia.setBid(706.00);
+			System.out.println(nvidia.toString() + "\n");
+
+			// Getting the performance matrix of each stock
+			if (amzn.getMetric() == 100) {
+				System.out.println("---------TIP: Possible BUY\n");
+			} else {
+				System.out.println("---------TIP: SELL\n");
+			}
+
+			if (nvidia.getMetric() == 100) {
+				System.out.println("---------TIP: Possible BUY\n");
+			} else {
+				System.out.println("---------TIP: SELL\n");
+			}
+
+			// Printing the price of stocks in StockMarket
+			System.out.println(
+					"--------------------Stock Market prices to show that the prices are being updated everywhere---------");
+			StockMarket.getObject().displayAllStocks();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

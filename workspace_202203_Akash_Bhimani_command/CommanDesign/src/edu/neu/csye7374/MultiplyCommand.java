@@ -1,0 +1,17 @@
+package edu.neu.csye7374;
+
+public class MultiplyCommand implements Command{
+	
+	Calculate calculate;
+
+	public MultiplyCommand(Calculate calculate) {
+		this.calculate = calculate;
+	}
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		calculate.multiply(calculate.a, calculate.b);
+	}
+
+}

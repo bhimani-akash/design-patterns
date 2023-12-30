@@ -1,0 +1,13 @@
+package edu.neu.csye7374.Strategy;
+
+public class LazySingletonBearStrategy implements Strategy {
+
+	@Override
+	public double calculatePrice(double oldPrice, double bidPrice) {
+		// TODO Auto-generated method stub
+		double newPrice;
+		newPrice = oldPrice + (bidPrice - oldPrice);
+		return newPrice;
+	}
+
+}

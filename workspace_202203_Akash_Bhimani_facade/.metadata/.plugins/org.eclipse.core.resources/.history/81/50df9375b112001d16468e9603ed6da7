@@ -1,0 +1,32 @@
+package edu.neu.csye7374;
+
+import java.util.List;
+
+public class FileUtil implements FileAPI{
+
+	@Override
+	public void openFile(String filePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<T> readFile() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void writeFile(List<String> data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void closeFile() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

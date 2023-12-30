@@ -1,0 +1,10 @@
+package edu.neu.csye7374;
+
+public class ACDecorators extends Auto{
+
+	public ACDecorators(AutoAPI newAuto) {	
+		super(newAuto);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,9 @@
+package edu.neu.csye7374;
+
+public class AutoOrdering {
+	
+	public static void demo() {
+		
+	}
+
+}

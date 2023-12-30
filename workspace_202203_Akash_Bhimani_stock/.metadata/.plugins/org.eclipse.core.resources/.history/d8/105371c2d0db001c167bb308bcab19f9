@@ -1,0 +1,28 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Costco extends StockAPI {
+	private List<Double> list = new ArrayList<>();
+
+	Costco(String ID, double price, String description) {
+		super(ID, price, description);
+		// TODO Auto-generated constructor stub
+		System.out.println("Initial price of Costco is " + price);
+	}
+	
+	@Override
+	public void setBid(double bid) {
+		// TODO Auto-generated method stub
+		list.add(bid - getPrice());
+		setPrice(bid);
+	}
+
+	@Override
+	public int getMetric() {
+		// TODO Auto-generated method stub
+		System.out.println("Price fluctuation for Costco = " + list + "\n");
+		return 0;
+	}	
+}

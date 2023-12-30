@@ -1,0 +1,19 @@
+package edu.neu.csye7374;
+
+public class ACDecorators extends Auto{
+
+	public ACDecorators(AutoAPI newAuto) {	
+		super(newAuto);
+		// TODO Auto-generated constructor stub
+	}
+
+	public double getPrice() {
+		System.out.print("Price of Air Conditioning: $3000");
+		return tempAuto.getPrice() + 3000;
+//		return tempPizza.getDescription() + ", mozzarella";
+	}
+
+	public String getDescription() {
+		return tempAuto.getDescription() + ", Air Conditioning";
+	}
+}

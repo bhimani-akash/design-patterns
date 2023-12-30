@@ -1,0 +1,26 @@
+package edu.neu.csye7374;
+
+import java.util.List;
+
+public class FileFacade implements FileFacadeAPI {
+
+	InterfaceReadWrite readwriteFile;
+	List<String> programData;
+	
+	public FacadeAPI(InterfaceReadWrite readwriteFile) {
+		this.readwriteFile = readwriteFile;
+	}
+	
+	@Override
+	public void save(List<String> programData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<String> programDataload() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

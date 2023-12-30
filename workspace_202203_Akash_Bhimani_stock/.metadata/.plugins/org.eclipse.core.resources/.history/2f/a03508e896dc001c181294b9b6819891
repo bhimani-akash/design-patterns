@@ -1,0 +1,19 @@
+package edu.neu.csye7374;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class StudentTest {
+    public static final class Student {
+        public Student( String name ) {
+            this.name = name;
+        }
+        private String name;
+    }
+
+    public static void main(final String[] args ) {
+        Map<Student, String> map = new HashMap<>();
+        map.put( new Student( "john"), "present" );
+        System.out.println( map.get( new Student( "john" ) ) );
+    }
+}

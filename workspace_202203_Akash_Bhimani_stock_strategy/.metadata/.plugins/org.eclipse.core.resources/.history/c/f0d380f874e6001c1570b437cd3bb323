@@ -1,0 +1,85 @@
+package edu.neu.csye7374.Strategy;
+
+import edu.neu.csye7374.StockAPI.Costco;
+import edu.neu.csye7374.StockAPI.Stock;
+import edu.neu.csye7374.StockAPI.StockMarket;
+import edu.neu.csye7374.StockAPI.Walmart;
+
+public class Context {
+	private Strategy strategy;
+	
+	public Context(Strategy strategy) {
+		this.strategy = strategy;
+	}
+	
+	public double executeStrategy(double price1, double price2) {
+		return strategy.calculatePrice(price1, price2);
+	}
+	
+	public static void demo() {
+		try {
+			System.out.println("Strategy Demo Function().....");
+			Stock walmart = new Walmart();
+			Stock costco = new Costco();
+
+			System.out.println("------------OPERATION:Adding the stocks in the stockmarket-----------\n");
+			// Adding the stocks in the StockMarket
+			StockMarket.getInstance().addStock(walmart);
+			StockMarket.getInstance().addStock(costco);
+
+			System.out.println("All the stocks in the stock market\n");
+			// Displaying all the stocks
+			StockMarket.getInstance().displayAllStocks();
+
+			System.out.println("------------OPERATION:Placing bids for the amazon---------------\n");
+			// Making the bids for Amazon Stock
+			walmart.setBid(1010.00);
+			System.out.println(walmart.toString() + "\n");
+			walmart.setBid(1011.00);
+			System.out.println(walmart.toString() + "\n");
+			walmart.setBid(1010.00);
+			System.out.println(walmart.toString() + "\n");
+			walmart.setBid(1013.00);
+			System.out.println(walmart.toString() + "\n");
+			walmart.setBid(1014.00);
+			System.out.println(amzn.toString() + "\n");
+			amzn.setBid(1015.00);
+			System.out.println(amzn.toString() + "\n");
+
+			System.out.println("------------OPERATION: Placing bids for costco-----------------------\n");
+			costco.setBid(437);
+			System.out.println(costco.toString() + "\n");
+			costco.setBid(434);
+			System.out.println(costco.toString() + "\n");
+			costco.setBid(438);
+			System.out.println(costco.toString() + "\n");
+			costco.setBid(428);
+			System.out.println(costco.toString() + "\n");
+			costco.setBid(435);
+			System.out.println(costco.toString() + "\n");
+			costco.setBid(400);
+			System.out.println(costco.toString() + "\n");
+
+			// Getting the performance matrix of each stock
+			if (amzn.getMetric() == 100) {
+				System.out.println("---------TIP: Possible BUY\n");
+			} else {
+				System.out.println("---------TIP: SELL\n");
+			}
+
+			if (costco.getMetric() == 100) {
+				System.out.println("---------TIP: Possible BUY\n");
+			} else {
+				System.out.println("---------TIP: SELL\n");
+			}
+
+			// Printing the price of stocks in StockMarket
+			System.out.println(
+					"--------------------Stock Market prices to show that the prices are being updated everywhere---------");
+			StockMarket.getInstance().displayAllStocks();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

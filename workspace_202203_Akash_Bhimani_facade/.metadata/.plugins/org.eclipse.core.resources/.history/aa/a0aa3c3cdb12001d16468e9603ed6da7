@@ -1,0 +1,18 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Driver {
+	public static void main(String[] args) {
+		InterfaceReadWrite readwriteText = new ReadWriteFile();
+		InterfaceReadWrite readwriteJSON = new ReadWriteJSON();
+		InterfaceReadWrite readwriteXML = new ReadWriteXML();
+		InterfaceReadWrite readwriteBinary = new ReadWriteBinary();
+		
+		FileFacadeAPI interFacade = new FileFacade(readwriteInter);
+		List<String> programData = new ArrayList<>();
+		interFacade.save(programData);
+		interFacade.programDataload();
+	}
+}

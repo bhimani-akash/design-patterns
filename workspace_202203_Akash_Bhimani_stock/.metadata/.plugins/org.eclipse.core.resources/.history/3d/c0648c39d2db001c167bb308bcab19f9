@@ -1,0 +1,28 @@
+package edu.neu.csye7374;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Walmart extends StockAPI {
+	private List<Double> list = new ArrayList<>();
+
+	Walmart(String ID, double price, String description) {
+		super(ID, price, description);
+		// TODO Auto-generated constructor stub
+		System.out.println("Initial price of Walmart is " + price);
+	}
+
+	@Override
+	public void setBid(double bid) {
+		// TODO Auto-generated method stub
+		list.add(bid - getPrice());
+		setPrice(bid);
+	}
+
+	@Override
+	public double getMetric() {
+		// TODO Auto-generated method stub
+		System.out.println("Price fluctuation for Walmart = " + list + "\n");
+		return 1;
+	}	
+}
